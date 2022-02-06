@@ -1,0 +1,22 @@
+CARTE = (nomC VARCHAR(50), description VARCHAR(50), dateCréation DATE);
+CONTRIBUTRICES = (nomCo VARCHAR(50), prénomCo VARCHAR(50), dateInscription DATE);
+ELEMENTS = (nom VARCHAR(50), cheminImage VARCHAR(50));
+MOBILIER = (idM INT, déplaçable VARCHAR(50), difficulté INT, nbCase INT, #nom);
+PIEGE = (idP INT, catégorie VARCHAR(50), zoneEffet VARCHAR(50), difficulté INT, #nom);
+EQUIPEMENT = (idE INT, valeurMonétaire CURRENCY, #nom);
+PNJ = (nomP VARCHAR(50), catégorieP VARCHAR(50), pièces INT, attaque INT, vie INT, métier VARCHAR(50), traitCaractère VARCHAR(50), phrase VARCHAR(50));
+ENVIRONNEMENT = (nomEnv VARCHAR(50), descriptionEnv VARCHAR(50));
+PARAMETRE = (nomP VARCHAR(50), valeur INT);
+ZONE = (idZ INT, descriptionZ VARCHAR(50), dimension DECIMAL(15,2), environnement VARCHAR(50), #nomC, #idZ_1*, #idM*);
+CREATURE = (nomC VARCHAR(50), catégorieC VARCHAR(50), pièces INT, attaque INT, vie INT, climat VARCHAR(50), diffiiculté VARCHAR(50), #nomEnv);
+créer = (#nomCo, dateCreation DATE, type VARCHAR(50), #nomC);
+Proche = (#idZ_1, directionSalleVoisine VARCHAR(50), #idZ);
+se_trouver = (#idZ, #nom, positionZ VARCHAR(50));
+rencontrerPNJ = (#idZ, #nomP);
+secondaire = (#nomC, #nomEnv);
+générer = (#nomC, #nomP);
+modifier = (#nomC, #nomCo, #nomP, valeurAvant VARCHAR(50));
+rencontrerCreature = (#idZ, #nomC);
+atteindre = (#nomC, ObjectifRéaliser VARCHAR(50), #idZ);
+trouver = (#nomC, ObjectifRéaliser VARCHAR(50), #idE);
+
